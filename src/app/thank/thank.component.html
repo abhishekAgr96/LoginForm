@@ -1,4 +1,5 @@
-<table>
+
+  <table>
   <tr>
     <th>First Name</th>
     <td>{{formValue.fname}}</td>
@@ -17,7 +18,11 @@
   </tr>
   <tr>
     <th>Password</th>
-    <td>{{formValue.password}} <button onclick="showHidePassword">()</button></td>
+    <td><input type="{{type}}" disabled value="{{formValue.password}}"/><i (click)="showHidePassword()" class="far fa-eye"></i></td>  
+  </tr>
+  <tr>
+    <th>Confirm Password</th>
+    <td><input type="{{type}}" disabled value="{{formValue.confirmPassword}}"/><i class="far fa-eye"></i></td>  
   </tr>
   <tr>
     <th>Employee ID</th>
@@ -26,3 +31,4 @@
   <tr>
     
 </table>
+<button (click)="editForm()">Edit Form</button>

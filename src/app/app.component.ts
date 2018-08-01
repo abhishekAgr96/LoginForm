@@ -11,6 +11,5 @@ export class AppComponent implements OnInit{
   title = 'login';
   constructor(private route:Router) { }
   ngOnInit() {
-    this.route.navigate(['/form'])
   }
 }

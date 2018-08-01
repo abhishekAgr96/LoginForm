@@ -10,6 +10,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 const Routes=[
   {
+    path:"",
+    component:FormComponent
+  },
+  {
     path:"form",
     component:FormComponent
   },
