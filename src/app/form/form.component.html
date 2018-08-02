@@ -15,18 +15,17 @@
     
     <input type="text" placeholder="Contact No." formControlName="contactNo" maxlength="10">
     <span *ngIf="myFormGroup.controls['contactNo'].hasError('required')">*</span>
-    <span *ngIf="myFormGroup.controls['contactNo'].hasError('minlength')">min 10 digits</span>
-    <span *ngIf="!myFormGroup.controls['contactNo'].valid && (myFormGroup.controls['contactNo'].dirty || myFormGroup.controls['contactNo'].touched)">Only digit are allowed</span><br/>
+    <span *ngIf="!myFormGroup.controls['contactNo'].valid && (myFormGroup.controls['contactNo'].dirty || myFormGroup.controls['contactNo'].touched)">10 digit no only</span><br/>
     
     <input type="text" placeholder="Password" formControlName="password" >
     <span *ngIf="myFormGroup.controls['password'].hasError('required')">*</span>
-    <span *ngIf="!myFormGroup.controls['password'].valid && (myFormGroup.controls['password'].dirty || myFormGroup.controls['password'].touched)" >1 Small Char, 1 Chaps, 1 Special Char, 1 digit required</span><br/>
+    <span *ngIf="!myFormGroup.controls['password'].valid && (myFormGroup.controls['password'].dirty || myFormGroup.controls['password'].touched)" >1 Small Char, 1 Chaps, 1 Special Char, 1 digit required & lenth:8-16</span><br/>
     
     <input type="text" placeholder="Confirm Password" formControlName="confirmPassword" (keyup)="checkPassword()">
     <span *ngIf="myFormGroup.controls['confirmPassword'].hasError('required')">*</span>
     <span *ngIf="!checkPass && (myFormGroup.controls['confirmPassword'].dirty || myFormGroup.controls['confirmPassword'].touched)">Password Not Matched</span><br/>
     
-    <input type="text" placeholder="Employee ID" formControlName="empId">
+    <input type="text" placeholder="Employee ID" formControlName="empId" maxlength="4">
     <span *ngIf="myFormGroup.controls['empId'].hasError('required')">*</span>
     <span *ngIf="!myFormGroup.controls['empId'].valid && (myFormGroup.controls['empId'].dirty || myFormGroup.controls['empId'].touched)">Only 4 digits</span><br/>
     <button type="submit" [disabled]="!myFormGroup.valid" >Sign Up</button>
