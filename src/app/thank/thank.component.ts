@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+import {FormDataService} from '../form-data.service';
+import { DataClass } from '../data-class';
 
 
 @Component({
@@ -9,7 +11,7 @@ import {Router} from '@angular/router';
 })
 export class ThankComponent implements OnInit {
 
-  constructor(private route:Router) { }
+  constructor(private formData:FormDataService, private route:Router,private classObj:DataClass) { }
 type:string="text";
   
 showHidePassword(){
@@ -23,12 +25,13 @@ showHidePassword(){
   }
 
   editForm(){
-    console.log("edit form call");
+   // console.log("edit form call");
     this.route.navigate(['/form']);
   }
   
-  formValue:string=JSON.parse( localStorage.getItem("json"));
+  
   ngOnInit() {
+    this.classObj= this.formData.jsonObject;
   }
 
 }

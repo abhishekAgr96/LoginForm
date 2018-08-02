@@ -2,13 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import { Validators } from '@angular/forms';
 import { FormControl , FormGroup } from '@angular/forms';
+import {FormDataService} from '../form-data.service';
+import {  DataClass } from '../data-class';
+
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit{
-  constructor(private route:Router) { }
+  constructor(private formData:FormDataService,private route:Router,private classObj:DataClass) { }
   title = 'reactiveForm';
   checkPass:boolean=false;
 
@@ -61,26 +64,29 @@ export class FormComponent implements OnInit{
 
 
   onSubmit(){
-    localStorage.setItem("json", JSON.stringify(this.myFormGroup.value));
-    console.log(this.myFormGroup.value);
-    this.route.navigate(['/thank']);
+    this.formData.jsonObject =this.myFormGroup.value;
+  
+        this.classObj=this.myFormGroup.value
+        console.log(this.classObj);
+        this.route.navigate(['/thank']);
   }
 
-  formValue:object; 
+    // formValue:dataClass; 
 
   ngOnInit(){
-    if(localStorage.getItem("json") && this.route.url==='/form'){
-     var formValue=JSON.parse(localStorage.getItem("json"));
+    if(this.formData.jsonObject && this.route.url==='/form'){
+      this.classObj= this.formData.jsonObject;
+     console.log(this.formData.jsonObject);
     this.myFormGroup.patchValue({
-      fname:formValue.fname,
-      lname:formValue.lname,
-      contactNo:formValue.contactNo,
-      gender:formValue.gender,
-      password:formValue.password,
-      confirmPassword:formValue.confirmPassword,
-      empId:formValue.empId
+      fname:this.classObj.fname,
+      lname:this.classObj.lname,
+      contactNo:this.classObj.contactNo,
+      gender:this.classObj.gender,
+      password:this.classObj.password,
+      confirmPassword:this.classObj.confirmPassword,
+      empId:this.classObj.empId
     });
   }
-    
+ 
 }
 }

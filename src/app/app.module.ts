@@ -1,12 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Component } from '@angular/core';
-
 import { AppComponent } from './app.component';
 import { FormComponent } from './form/form.component';
 import { FormsModule } from '@angular/forms'
 import { RouterModule, Routes } from '@angular/router';
 import { ThankComponent } from './thank/thank.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import {FormDataService} from './form-data.service';
+import {DataClass} from './data-class';
 
 const Routes=[
   {
@@ -27,7 +28,8 @@ const Routes=[
   declarations: [
     AppComponent,
     FormComponent,
-    ThankComponent
+    ThankComponent,
+  
   ],
   imports: [
     BrowserModule,
@@ -35,11 +37,12 @@ const Routes=[
     ReactiveFormsModule,
     RouterModule.forRoot(Routes)
   ],
-  providers: [],
+  providers: [
+    FormDataService,
+    DataClass
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  
 
- 
  }

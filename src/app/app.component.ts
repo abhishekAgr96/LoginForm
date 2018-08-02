@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,6 +11,7 @@ import {Router} from '@angular/router';
 export class AppComponent implements OnInit{
   title = 'login';
   constructor(private route:Router) { }
+
   ngOnInit() {
   }
 }
