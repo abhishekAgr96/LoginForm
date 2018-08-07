@@ -1,32 +1,32 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <h1>Sign Up</h1> 
 <form [formGroup]="myFormGroup" (ngSubmit)="onSubmit()" >
-    <input type="text" placeholder="First Name" formControlName="fname">
+    <input type="text" placeholder="First Name" formControlName="fname" [ngClass]="myFormGroup.controls['fname'].valid? 'green':'red'">
     <span *ngIf="myFormGroup.controls['fname'].hasError('required')">*</span>
     <span *ngIf="myFormGroup.controls['fname'].invalid  && (myFormGroup.controls['fname'].dirty || myFormGroup.controls['fname'].touched)">Only Charactors</span><br/> 
     
-    <input type="text" placeholder="Last Name" formControlName="lname">
+    <input type="text" placeholder="Last Name" formControlName="lname" [ngClass]="myFormGroup.controls['lname'].valid? 'green':'red'">
     <span *ngIf="myFormGroup.controls['lname'].hasError('required')">*</span>
     <span *ngIf="myFormGroup.controls['lname'].invalid  && (myFormGroup.controls['lname'].dirty || myFormGroup.controls['lname'].touched)">Only Charactors</span><br/> 
 
-    <input type="text" placeholder="Gender" formControlName="gender" maxlength="1">
+    <input type="text" placeholder="Gender" formControlName="gender" maxlength="1" [ngClass]="myFormGroup.controls['gender'].valid? 'green':'red'">
     <span *ngIf="myFormGroup.controls['gender'].hasError('required')">*</span>
     <span *ngIf="myFormGroup.controls['gender'].invalid && (myFormGroup.controls['gender'].dirty || myFormGroup.controls['gender'].touched)">Can take only 'M' or 'F' as Input</span><br/>
     
-    <input type="text" placeholder="Contact No." formControlName="contactNo" maxlength="10">
+    <input type="text" placeholder="Contact No." formControlName="contactNo" maxlength="10" [ngClass]="myFormGroup.controls['contactNo'].valid? 'green':'red'">
     <span *ngIf="myFormGroup.controls['contactNo'].hasError('required')">*</span>
-    <span *ngIf="!myFormGroup.controls['contactNo'].valid && (myFormGroup.controls['contactNo'].dirty || myFormGroup.controls['contactNo'].touched)">10 digit no only</span><br/>
+    <span *ngIf="!myFormGroup.controls['contactNo'].valid && (myFormGroup.controls['contactNo'].dirty || myFormGroup.controls['contactNo'].touched)">10 digit no. only</span><br/>
     
-    <input type="text" placeholder="Password" formControlName="password" >
+    <input type="text" placeholder="Password" formControlName="password" [ngClass]="myFormGroup.controls['password'].valid? 'green':'red'">
     <span *ngIf="myFormGroup.controls['password'].hasError('required')">*</span>
     <span *ngIf="!myFormGroup.controls['password'].valid && (myFormGroup.controls['password'].dirty || myFormGroup.controls['password'].touched)" >1 Small Char, 1 Chaps, 1 Special Char, 1 digit required & lenth:8-16</span><br/>
     
-    <input type="text" placeholder="Confirm Password" formControlName="confirmPassword" (keyup)="checkPassword()">
+    <input type="text" placeholder="Confirm Password" formControlName="confirmPassword" (keyup)="checkPassword()" [ngClass]="myFormGroup.controls['confirmPassword'].valid? 'green':'red'">
     <span *ngIf="myFormGroup.controls['confirmPassword'].hasError('required')">*</span>
     <span *ngIf="!checkPass && (myFormGroup.controls['confirmPassword'].dirty || myFormGroup.controls['confirmPassword'].touched)">Password Not Matched</span><br/>
     
-    <input type="text" placeholder="Employee ID" formControlName="empId" maxlength="4">
+    <input type="text" placeholder="Employee ID" formControlName="empId" maxlength="4" [ngClass]="myFormGroup.controls['empId'].valid? 'green':'red'">
     <span *ngIf="myFormGroup.controls['empId'].hasError('required')">*</span>
     <span *ngIf="!myFormGroup.controls['empId'].valid && (myFormGroup.controls['empId'].dirty || myFormGroup.controls['empId'].touched)">Only 4 digits</span><br/>
-    <button type="submit" [disabled]="!myFormGroup.valid" >Sign Up</button>
+    <button type="submit" [disabled]="!myFormGroup.valid" [ngStyle]="{'background-color':myFormGroup.valid?'green':'orange'}" >Sign Up</button>
   </form>

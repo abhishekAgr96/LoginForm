@@ -8,6 +8,7 @@ import { ThankComponent } from './thank/thank.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {FormDataService} from './form-data.service';
 import {DataClass} from './data-class';
+import { WrongPathComponent } from './wrong-path/wrong-path.component';
 
 const Routes=[
   {
@@ -21,6 +22,10 @@ const Routes=[
   {
     path:"thank",
     component: ThankComponent
+  },
+  {
+    path:"**",
+    component:WrongPathComponent
   }
 ]
 
@@ -29,6 +34,7 @@ const Routes=[
     AppComponent,
     FormComponent,
     ThankComponent,
+    WrongPathComponent,
   
   ],
   imports: [

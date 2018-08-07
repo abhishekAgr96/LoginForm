@@ -1,0 +1,13 @@
+input{
+    margin: 1%;
+}
+.green{
+    border-color: green;
+}
+.red{
+    border-color: red;
+}
+button{
+    margin-left:1%; 
+    width: 172px;
+}

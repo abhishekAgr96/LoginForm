@@ -28,6 +28,9 @@ showHidePassword(){
    // console.log("edit form call");
     this.route.navigate(['/form']);
   }
+  newForm(){
+    this.route.navigate(['']);
+  }
   
   
   ngOnInit() {
